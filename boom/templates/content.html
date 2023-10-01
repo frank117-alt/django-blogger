@@ -1,0 +1,68 @@
+
+<body>
+
+  <div class="relative isolate px-6 pt-14 lg:px-8">
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+
+
+      <br>
+      <br>
+      
+      <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+      <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+
+
+         <br>
+         <br>
+
+         {% for  blogs in blog %}
+       
+      <div class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{blogs.title}}</h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">{{blogs.text}}</p>
+
+        <img
+          src="{{blogs.upload.url}}"
+          class="h-auto max-w-sm rounded-lg shadow-none transition-shadow duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30" 
+          alt=".."  width='600' height='600' />
+        {% endfor %}
+
+>
+
+         
+        </div>
+
+
+      </div>
+    </div>
+    <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+ 
+</div>
+
+    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+      <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+  </div>
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if blog.has_previous %}
+            <a href="?page=1">&laquo; atras</a>
+            <a href="?page={{ blog.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            paginas {{ blog.number }} of {{ blog.paginator.num_pages }}.
+        </span>
+
+        {% if blog.has_next %}
+            <a href="?page={{ blog.next_page_number }}">siguiente</a>
+            <a href="?page={{ blog.paginator.num_pages }}">ir
+             &raquo; ultima</a>
+        {% endif %}
+    </span>
+</div>
+
